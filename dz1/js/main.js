@@ -19,7 +19,7 @@ const renderProducts = (list) => {
   const productList = list
     .map((item) => renderProduct(item.title, item.price))
     .join("");
-  console.log(productList);
+  // console.log(productList);
   productEl.innerHTML = productList;
 };
 
