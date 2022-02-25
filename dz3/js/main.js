@@ -3,22 +3,47 @@ const API =
   "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses";
 // только для первого задания! Далее не использовать в классах каталога и корзины!!!
 // Не использовать fetch
-let getRequest = (url, cb) => {
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
 
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4) {
-      if (xhr.status !== 200) {
-        console.log("Error");
-      } else {
-        cb(xhr.responseText);
-      }
-    }
-  };
+// let getRequest = (url, cb) => {
+//   // тут промис
+//   let xhr = new XMLHttpRequest();
+//   xhr.open("GET", url, true);
+//   xhr.onreadystatechange = () => {
+//     if (xhr.readyState === 4) {
+//       if (xhr.status !== 200) {
+//         console.log("Error");
+//       } else {
+//         cb(xhr.responseText);
+//       }
+//     }
+//   };
 
-  xhr.send();
-};
+//   xhr.send();
+// };
+
+// Решение пришлось подсмотреть, задания просто не понял.
+// С промисами пришлось повозиться в доп источниках информации  yuotube
+// Общий принцип работы я понял
+// Promise просто удобная обертка для работы с CallBack функциями
+
+// Код закоментировал, иначе все ломается
+
+// let getRequest = (url) => {
+//   return new Promise = ((resolve, reject) => {
+//     let xhr = new XMLHttpRequest();
+//     xhr.open("GET", url, true);
+//     xhr.onreadystatechange = () => {
+//       if (xhr.readyState === 4) {
+//         if (xhr.status !== 200) {
+//           reject("Error");
+//         } else {
+//           resolve(xhr.responseText);
+//         }
+//       }
+//     };
+//     xhr.send();
+//   })
+// };
 
 class ProductList {
   constructor(container = ".products") {
@@ -73,7 +98,7 @@ class ProductList {
 class ProductItem {
   constructor(product, img = "https://via.placeholder.com/200x150") {
     this.id = product.id;
-    this.title = product.title;
+    this.product_name = product.product_name;
     this.price = product.price;
     this.img = img;
   }
@@ -82,7 +107,7 @@ class ProductItem {
     return `<div class="product-item" data-id="${this.id}">
               <img src="${this.img}" alt="Some img">
               <div class="desc">
-                  <h3>${this.title}</h3>
+                  <h3>${this.product_name}</h3>
                   <p>${this.price} \u20bd</p>
                   <button class="buy-btn">Купить</button>
               </div>
@@ -90,4 +115,7 @@ class ProductItem {
   }
 }
 
-new ProductList();
+class Cart {}
+
+// new ProductList();
+console.log(new ProductList());
