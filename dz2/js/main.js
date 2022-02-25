@@ -82,5 +82,5 @@ class Cart {
 
   */
 }
-console.log(c.calcSumAllProducts());
-console.log("Суммарная стоимость всех товаров: " + c.calcSumAllProducts());
+// console.log(c.calcSumAllProducts());
+// console.log("Суммарная стоимость всех товаров: " + c.calcSumAllProducts());
