@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            margin: 30px auto;
+            width: 600px;
+            border: 1px solid darkred;
+            padding: 15px;
+        }
+
+        .paragraf {
+            padding-bottom: 10px;
+
+        }
+
+        .pTitle {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .totalCal,
+        .totalSumm {
+            font-weight: 500;
+            font-size: 16px;
+            color: darkmagenta;
+        }
+
+        label:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <form action="#" class="burger">
+            <div class="paragraf radioSelect">
+                <p class="pTitle">Выбирете тип бургера:</p>
+                <input class='rb-burg' id="contactChoice1" type="radio" name="burgerType" value="small" data-price="50"
+                    data-cal="20"><label for="contactChoice1">Маленький (50 рублей, 20 калорий)</label><br>
+                <input class='rb-burg' id="contactChoice2" type="radio" name="burgerType" value="large" data-price="100"
+                    data-cal="40"><label for="contactChoice2">Большой (100 рублей, 40 калорий)
+                </label><Br>
+            </div>
+
+            <div class="paragraf selSelect">
+                <p class="pTitle">Выбирете основной наполнитель:</p>
+                <select>
+                    <option class="sClass" data-price="10" data-cal="20">С сыром (+10 рублей, +20 калорий)</option>
+                    <option class="sClass" data-price="20" data-cal="50">С салатом (+20 рублей, +5 калорий)</option>
+                    <option class="sClass" data-price="15" data-cal="10">С картофелем (+15 рублей, +10 калорий)</option>
+                </select>
+            </div>
+
+            <div class="paragraf dopSelect">
+                <p class="pTitle">Доп. наполнитель:</p>
+                <select>
+                    <option class="" data-price="0" data-cal="0">Не добавлять</option>
+                    <option data-price="15" data-cal="0">посыпать приправой (+15 рублей, +0 калорий)</option>
+                    <option data-price="20" data-cal="5">полить майонезом (+20 рублей, +5 калорий)</option>
+                </select>
+            </div>
+
+            <div class="paragraf pTitle">
+                Бургер содержит: <span class="totalCal">100500 кал</span> <br>
+                Итоговая сумма <span class="totalSumm">100500 руб</span>
+            </div>
+
+
+
+
+        </form>
+
+    </div>
+
+
+    <script>
+        const radioSelectEl = document.querySelector('.radioSelect');
+        const selSelectEl = document.querySelector('.selSelect');
+        const dopSelectEl = document.querySelector('.dopSelect');
+
+        radioSelectEl.addEventListener('input', e => {
+            if (!e.target.classList.contains('rb-burg')) {
+                return;
+            }
+            burgPrice = e.target.dataset.price;
+            burgCal = e.target.dataset.cal;
+            console.log(burgPrice, burgCal);
+        });
+
+        selSelectEl.addEventListener('change', e => {
+            if (!e.target.classList.contains('sClass')) {
+                return;
+            }
+            console.log(e.target);
+        });
+
+        class Hamburger {
+            constructor(size, stuffing) {
+            }
+            addTopping(topping) {
+                // Добавить добавку 
+            }
+            removeTopping(topping) {
+                // Убрать добавку 
+            }
+            getToppings(topping) {
+                // Получить список добавок
+            }
+            getSize() {              // Узнать размер гамбургера 
+            }
+            getStuffing() {          // Узнать начинку гамбургера 
+            }
+            calculatePrice() {       // Узнать цену 
+            }
+            calculateCalories() {    // Узнать калорийность 
+            }
+        }
+    </script>
+
+</body>
+
+</html>
