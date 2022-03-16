@@ -1,6 +1,7 @@
 "use strict";
 const API =
   "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses";
+
 // только для первого задания! Далее не использовать в классах каталога и корзины!!!
 // Не использовать fetch
 
@@ -83,9 +84,9 @@ class ProductList {
 
   _render() {
     console.log("rendering data...");
+    console.log(this._goods);
     for (const product of this._goods) {
       const productObject = new ProductItem(product);
-
       this._allProducts.push(productObject);
       this._container.insertAdjacentHTML(
         "beforeend",
@@ -96,6 +97,24 @@ class ProductList {
 }
 
 class ProductItem {
-                      
+  constructor(product, img = "https://via.placeholder.com/200x150") {
+    this.id = product.id;
+    this.product_name = product.product_name;
+    this.price = product.price;
+    this.img = img;
+  }
+
+  getHTMLString() {
+    return `<div class="product-item" data-id="${this.id}">
+              <img src="${this.img}" alt="Some img">
+              <div class="desc">
+                  <h3>${this.product_name}</h3>
+                  <p>${this.price} \u20bd</p>
+                  <button class="buy-btn">Купить</button>
+              </div>
+          </div>`;
+  }
+}
+
 // new ProductList();
 console.log(new ProductList());
