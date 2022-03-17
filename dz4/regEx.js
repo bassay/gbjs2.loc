@@ -4,7 +4,6 @@
 // кавычки. Придумать шаблон, который заменяет одинарные кавычки на двойные.
 
 let str = "Привет мир, это мои 'маленькие кавычки'";
-
 let regExp1 = /'/gm;
 let res = str.replace(regExp1, '"');
 // console.log(res);
@@ -13,7 +12,6 @@ let res = str.replace(regExp1, '"');
 // двойную.
 
 let str2 = "Привет мир, это aren't мои 'маленькие кавычки'";
-
 let regExp2 = /\B\'\B/gm;
 res = str2.replace(regExp2, '"');
 // console.log(res);
