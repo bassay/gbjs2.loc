@@ -29,15 +29,16 @@ res = str2.replace(regExp2, '"');
 Везде специально в форме поставил type="text"
 */
 
-// Массив правил
+// Массив правил id элемента и регулярка
 const arrayRules = [
   ["formName", /[A-zА-я]/gi],
-  ["formPhone", /[^A-zА-я]/gi],
+  // ["formPhone", /[^A-zА-я]/gi],
+  ["formPhone", /[+][0-9]/gi],
   ["formEmail", /@/gi],
   ["formDesc", /\w/gim],
 ];
 
-// Простой цикл
+// Простой быстрый цикл
 for (let i = 0; i < arrayRules.length; i++) {
   let id = arrayRules[i][0];
   let regEx = arrayRules[i][1];
@@ -48,11 +49,14 @@ for (let i = 0; i < arrayRules.length; i++) {
 function formValidate(id, regEx) {
   let formEl = document.getElementById(id);
   formEl.addEventListener("change", (e) => {
-    if (e.target.value.match(regEx) === null) {
-      // e.target.insertAdjacentHTML("beforebegin", '<p class="error">Ошибка</p>');
-      e.target.classList.add("error");
-    } else {
-      e.target.classList.remove("error");
-    }
+    // if (e.target.value.match(regEx) === null) {
+    //   // e.target.insertAdjacentHTML("beforebegin", '<p class="error">Ошибка</p>');
+    //   e.target.classList.add("error");
+    // } else {
+    //   e.target.classList.remove("error");
+    // }
+    e.target.value.match(regEx) === null
+      ? e.target.classList.add("error")
+      : e.target.classList.remove("error");
   });
 }
