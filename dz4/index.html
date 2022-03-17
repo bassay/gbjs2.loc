@@ -5,11 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DZ-4</title>
+    <style>
+        .wrap {
+            width: 300px;
+            margin: 0 auto;
+            border: 1px solid darkblue;
+            padding: 20px;
+        }
+
+        .flexxx {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .error {
+            color: darkred;
+            border-color: darkred;
+
+        }
+    </style>
 </head>
 
 <body>
+    <div class="wrap">
+        <h1>Моя форма с валидацией</h1>
+        <form action="#" class="flexxx">
+            <input placeholder="Имя" type="text" name="name" id="formName">
+            <input placeholder="Телефон через +7" type="text" name="phone" id="formPhone">
+            <input placeholder="Email" type="text" name="mail" id="formEmail">
+            <textarea placeholder="Сообщение" name="desc" id="formDesc" cols="30" rows="5"></textarea>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
 
 </body>
+<script src="regEx.js"></script>
+
 
 </html>
