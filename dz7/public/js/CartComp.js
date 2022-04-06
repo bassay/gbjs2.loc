@@ -4,21 +4,19 @@ Vue.component('cart', {
           imgCart: 'https://via.placeholder.com/50x100',
           cartUrl: '/getBasket.json',
           cartItems: [],
-          showCart: true,
+          showCart: false,
       }
     },
     methods: {
         addProduct(product){
             let find = this.cartItems.find(el => el.id_product === product.id_product);
             if(find){
-                console.log('1 ', product)
                 this.$parent.putJson(`/api/cart/${find.id_product}`, product);
                 find.quantity++;
             } else {
                 let prod = Object.assign({quantity: 1}, product);
                 this.$parent.postJson('/api/cart', prod)
                   .then(data => {
-                      console.log('2 ', data)
                       if (data.result === 1) {
                           this.cartItems.push(prod);
                       }
@@ -41,7 +39,6 @@ Vue.component('cart', {
     mounted(){
         this.$parent.getJson('/api/cart')
             .then(data => {
-                // console.log(data)
                 for(let el of data.contents){
                     this.cartItems.push(el);
                 }
